@@ -1,0 +1,26 @@
+// theme.scss
+
+// 🎨 Color Palette
+$green-100: #10AD5D;
+$red-100: #ED1C24;
+$black-100: #333333;
+$black-200: #777777;
+$black-300:#020202;
+$white-100: #ffffff;
+$gray-100: #B8A064;
+
+// 🧩 Theme Variables
+// Background
+$main-bg: $white-100;
+$component-redbg: $red-100;
+$background-gray: $gray-100;
+
+// Content
+$success-text: $green-100;
+$error-text: $red-100;
+$highlight-text:$red-100;
+$white-text: $white-100;
+$theme-text: $black-100;
+$shadow_color:$black-100;
+$disable-text: $black-200;
+$bold-text:$black-300;

@@ -1,0 +1,19 @@
+@import "/src/Styles/theme.scss";
+.container {
+  width: 100%;
+  background: $main-bg;
+  position: sticky;
+  top: 0px;
+  box-shadow: 1px 1px 4px 4px rgb(218, 216, 216);
+}
+.nav_container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 100px !important;
+  &__pincode {
+    cursor: pointer;
+    &:hover {
+      color: $highlight-text !important;
+    }
+  }
+}

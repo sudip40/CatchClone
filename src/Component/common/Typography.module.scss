@@ -1,0 +1,31 @@
+@import "/src/Styles/theme.scss";
+.nav_bold_txt {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  color: $bold-text;
+  cursor: pointer;
+  &:hover {
+    color: $highlight-text;
+  }
+}
+.bold_txt {
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 600;
+  color: $theme-text;
+}
+.content_txt {
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 400;
+  color: $disable-text;
+}
+.icon {
+  color: inherit;       // important so parent hover affects it
+  svg {
+    fill: currentColor; // makes SVG pick up the color value
+    width: 1em;
+    height: 1em;
+  }
+}
