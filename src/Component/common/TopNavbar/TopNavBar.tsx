@@ -3,10 +3,15 @@ import React from "react";
 import styles from "./TopNavBar.module.scss";
 import TextStyle from "@/Component/common/Typography.module.scss";
 import { ConfigProvider, Flex, Progress } from "antd";
-import { EnvironmentOutlined } from "@ant-design/icons";
-import { NavigationItems } from "@/Component/constant/NavigationItems";
+import { DownOutlined, EnvironmentOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  NavigationItems,
+  socialMediaItems,
+} from "@/Component/constant/NavigationItems";
 import VerticalDivider from "../Customized/VerticalDevider";
 import { theme } from "@/Styles/theme";
+import MediaIcon from "../Customized/MediaIcon";
+import ButtonOutlined from "../Customized/CustomButton/Outlined";
 export default function TopNavigationBar() {
   return (
     <Flex vertical className={styles.container}>
@@ -17,7 +22,7 @@ export default function TopNavigationBar() {
         className={styles.nav_container}
       >
         <img
-          src="https://share.google/images/sKApRCTivfHl3c8R7"
+          src="https://static.vecteezy.com/system/resources/previews/023/654/784/non_2x/golden-logo-template-free-png.png"
           alt="default logo"
           width={100}
           height={70}
@@ -35,6 +40,15 @@ export default function TopNavigationBar() {
               <p>Hello, Enter Your Pincode</p>
             </Flex>
             <VerticalDivider />
+            <Flex align="center" gap={8}>
+              {socialMediaItems.map((item: any) => {
+                return <MediaIcon key={item.key} item={item} />;
+              })}
+            </Flex>
+            <ButtonOutlined rounded label="ORDER ONLINE" icon={<DownOutlined/>}/>
+            <span className={styles.search_icon}>
+              <SearchOutlined />
+            </span>
           </Flex>
           <Flex align="center" justify="flex-end" gap={20}>
             {NavigationItems.map((item: any, ind: number) => {
@@ -52,13 +66,13 @@ export default function TopNavigationBar() {
           components: {
             Progress: {
               /* here is your component tokens */
-              defaultColor:theme.content.highlight_text,
-              lineBorderRadius:0
+              defaultColor: theme.content.highlight_text,
+              lineBorderRadius: 0,
             },
           },
         }}
       >
-        <Progress showInfo={false} percent={10}/>
+        <Progress showInfo={false} percent={10} strokeWidth={5}/>
       </ConfigProvider>
     </Flex>
   );

@@ -13,7 +13,7 @@ const color={
     white:{
         100:'#ffffff'
     },
-    gray:{
+    yellow:{
         100:'#B8A064'
     }
 }
@@ -22,7 +22,8 @@ export const theme={
     background:{
         main_bg:color.white[100],
         component_redbg:color.red[100],
-        background_gray:color.gray[100],
+        background_yellow_shade_1:color.yellow[100],
+        background_gray:color.black[100] 
     },
     content:{
         success_text:color.green[100],

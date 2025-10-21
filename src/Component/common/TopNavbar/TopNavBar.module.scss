@@ -9,11 +9,18 @@
 .nav_container {
   width: 100%;
   box-sizing: border-box;
-  padding: 8px 100px !important;
+  padding: 8px 100px 0px 100px !important;
   &__pincode {
     cursor: pointer;
     &:hover {
       color: $highlight-text !important;
     }
   }
+}
+.search_icon{
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  color: $theme-text;
 }

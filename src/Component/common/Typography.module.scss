@@ -21,11 +21,4 @@
   font-weight: 400;
   color: $disable-text;
 }
-.icon {
-  color: inherit;       // important so parent hover affects it
-  svg {
-    fill: currentColor; // makes SVG pick up the color value
-    width: 1em;
-    height: 1em;
-  }
-}
+
