@@ -23,7 +23,7 @@ export const theme={
         main_bg:color.white[100],
         component_redbg:color.red[100],
         background_yellow_shade_1:color.yellow[100],
-        background_gray:color.black[100] 
+        background_gray:color.black[200] 
     },
     content:{
         success_text:color.green[100],

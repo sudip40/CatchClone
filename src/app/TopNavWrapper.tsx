@@ -3,9 +3,9 @@ import { Flex } from "antd";
 import React, { ReactNode } from "react";
 export default function TopNavWrapper({children}:{children:ReactNode}){
     return (
-        <Flex vertical style={{width:'100%'}}>
+        <div style={{width:'100%'}}>
             <TopNavigationBar/>
             {children}
-        </Flex>
+        </div>
     )
 }

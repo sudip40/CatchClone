@@ -23,6 +23,7 @@ export default function ButtonOutlined({
         components: {
           Button: {
             /* here is your component tokens */
+            defaultBg:'transparent',
             defaultColor: theme.content.highlight_text,
             defaultBorderColor: theme.content.highlight_text,
             defaultHoverColor: theme.content.white_text,

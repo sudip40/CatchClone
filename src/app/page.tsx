@@ -1,6 +1,4 @@
-
+import LandingPage from "@/Component/LandingPage/LandingPage";
 export default function Page() {
-  return (
-    <>Catch-clone</>
-  );
+  return <LandingPage />;
 }

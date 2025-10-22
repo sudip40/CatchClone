@@ -2,8 +2,9 @@
 .container {
   width: 100%;
   background: $main-bg;
-  position: sticky;
-  top: 0px;
+  position: fixed;
+  top: 0;
+  z-index: 800;
   box-shadow: 1px 1px 4px 4px rgb(218, 216, 216);
 }
 .nav_container {
