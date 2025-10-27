@@ -2,6 +2,7 @@ import { Flex } from "antd";
 import TextStyles from "@/Component/common/Typography.module.scss";
 import styles from "./LandingPage.module.scss";
 import ButtonOutlined from "../common/Customized/CustomButton/Outlined";
+import { RightOutlined } from "@ant-design/icons";
 interface keyFeatureProp {
   id: string | number;
   point: string;
@@ -43,18 +44,24 @@ export function SpicesInfo({ spice }: { spice: SpiceInfoProp }) {
   return (
     <Flex align="center" gap={24} className={styles.item_details}>
       <Flex vertical gap={27} align="flex-start">
-        <p
-          className={styles.details_heading}
-        >
-          {spice.spice}
-        </p>
+        <p className={styles.details_heading}>{spice.spice}</p>
         <p className={TextStyles.content_txt}>{spice.details}</p>
         <Flex align="center" gap={10}>
-            <ButtonOutlined label="ORDER ONLINE" colorStrokeBg='gray'/>
-            <ButtonOutlined label="VIEW DETAILS" colorStrokeBg='gray'/>
+          <ButtonOutlined
+            label="ORDER ONLINE"
+            colorStrokeBg="yellow_1"
+            size="large"
+            icon={<RightOutlined />}
+          />
+          <ButtonOutlined
+            label="VIEW DETAILS"
+            colorStrokeBg="gray"
+            size="large"
+            icon={<RightOutlined />}
+          />
         </Flex>
       </Flex>
-      <img src={spice.image} alt={"default_spice"} width={450} height={400} />
+      <img src={spice.image} alt={"default_spice"} width={450} height={350} />
     </Flex>
   );
 }

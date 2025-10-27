@@ -29,6 +29,7 @@ export const theme={
         success_text:color.green[100],
         error_text:color.red[100],
         highlight_text:color.red[100],
+        yellow_shade_1_text:color.yellow[100],
         white_text:color.white[100],
         theme_text:color.black[100],
         shadow_text:color.black[100],
