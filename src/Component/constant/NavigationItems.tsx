@@ -48,3 +48,16 @@ export const socialMediaItems = [
     component: <XOutlined />,
   },
 ];
+
+export const onlineOderOptions=[
+  {
+    id:'amazon1',
+    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx-N8Kr5wYiTLajPVLlcg7PEgfkyd3qEqZqQ&s',
+    link:''
+  },
+  {
+    id:'amazon2',
+    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx-N8Kr5wYiTLajPVLlcg7PEgfkyd3qEqZqQ&s',
+    link:''
+  },
+]
