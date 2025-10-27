@@ -6,7 +6,7 @@ type customModalProp = {
   children:ReactNode
 };
 type combinedModalProp = customModalProp & ModalProps;
-export default function CustomModal({headerLabel,children, ...rest}: combinedModalProp) {
+export default function CustomModal({headerLabel="",children, ...rest}: combinedModalProp) {
   return (
     <ConfigProvider
       theme={{

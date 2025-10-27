@@ -1,9 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TopNavBar.module.scss";
 import TextStyle from "@/Component/common/Typography.module.scss";
 import { ConfigProvider, Flex, Progress } from "antd";
-import { DownOutlined, EnvironmentOutlined, SearchOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  EnvironmentOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import {
   NavigationItems,
   socialMediaItems,
@@ -12,7 +16,25 @@ import VerticalDivider from "../Customized/VerticalDevider";
 import { theme } from "@/Styles/theme";
 import MediaIcon from "../Customized/MediaIcon";
 import ButtonOutlined from "../Customized/CustomButton/Outlined";
+import EnterPincodeModal from "./EnterPincodeModal";
 export default function TopNavigationBar() {
+  const [modal, setModal] = useState({ open: false, type: "" });
+  const handleModalOpen = (type: string) => {
+    setModal({ open: true, type });
+  };
+  const handleModalClose = () => {
+    setModal({ open: false, type: "" });
+  };
+  const modalRender = () => {
+    switch (modal.type) {
+      case "pincode_modal":
+        return (
+          <EnterPincodeModal open={modal.open} onClose={handleModalClose} />
+        );
+      default:
+        return null;
+    }
+  };
   return (
     <Flex vertical className={styles.container}>
       <Flex
@@ -33,6 +55,7 @@ export default function TopNavigationBar() {
               align="center"
               gap={4}
               className={`${TextStyle.content_txt} ${styles.nav_container__pincode}`}
+              onClick={()=>handleModalOpen('pincode_modal')}
             >
               <span style={{ fontSize: "14px" }}>
                 <EnvironmentOutlined />
@@ -45,7 +68,11 @@ export default function TopNavigationBar() {
                 return <MediaIcon key={item.key} item={item} />;
               })}
             </Flex>
-            <ButtonOutlined rounded label="ORDER ONLINE" icon={<DownOutlined/>}/>
+            <ButtonOutlined
+              rounded
+              label="ORDER ONLINE"
+              icon={<DownOutlined />}
+            />
             <span className={styles.search_icon}>
               <SearchOutlined />
             </span>
@@ -72,8 +99,9 @@ export default function TopNavigationBar() {
           },
         }}
       >
-        <Progress showInfo={false} percent={10} strokeWidth={5}/>
+        <Progress showInfo={false} percent={10} strokeWidth={5} />
       </ConfigProvider>
+      {modal.open && modalRender()}
     </Flex>
   );
 }
