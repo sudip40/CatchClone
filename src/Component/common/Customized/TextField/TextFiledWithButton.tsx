@@ -7,24 +7,28 @@ type customProp = {
   placeHolder?: string;
   buttonTxt?: string;
   onClick: any;
+  buttonBg?:string;
+  borderRadius?:number;
 };
 type combinedTextFieldProp = customProp & InputProps & InputNumberProps;
 export function TextFieldWithButton({
   lableText = "",
   placeHolder = "",
   buttonTxt = "",
+  buttonBg,
   onClick,
+  borderRadius,
   ...rest
 }: combinedTextFieldProp) {
   return (
     <ConfigProvider
       theme={{
         token: {
-          borderRadius: 4,
+          borderRadius: borderRadius?? 4,
         },
         components: {
           Input: {
-            addonBg: theme.background.background_yellow_shade_1,
+            addonBg:buttonBg?buttonBg: theme.background.background_yellow_shade_1,
           },
         },
       }}

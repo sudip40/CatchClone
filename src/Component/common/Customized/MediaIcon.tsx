@@ -6,19 +6,25 @@ interface itemProp {
   link: string;
   component: ReactElement;
 }
-const RapperDiv = styled.div`
-height:32px;
-width:32px;
-background:${theme.background.component_redbg};
-color:${theme.content.white_text};
-border-radius:50%;
-box-sizing:border-box;
-padding:8px;
-cursor: pointer;
+type PropsType = {
+  item: itemProp;
+  size?: string;
+  onClick?:any
+};
+const RapperDiv = styled.div<{ size?: string }>`
+  height: ${(p) => p.size ?? "32px"};
+  width: ${(p) => p.size ?? "32px"};
+  background: ${theme.background.component_redbg};
+  color: ${theme.content.white_text};
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 8px;
+  cursor: pointer;
 `;
-export default function MediaIcon({ item }: { item: itemProp }) {
-  const handleOpenInNewTab = () => {
-    window.open(item.link, "_blank");
-  };
-  return <RapperDiv onClick={handleOpenInNewTab}>{item.component}</RapperDiv>;
+export default function MediaIcon({ item, size,onClick }: PropsType) {
+  return (
+    <RapperDiv size={size} onClick={onClick}>
+      {item.component}
+    </RapperDiv>
+  );
 }

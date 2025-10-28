@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TopNavBar.module.scss";
 import TextStyle from "@/Component/common/Typography.module.scss";
 import { ConfigProvider, Flex, Progress } from "antd";
@@ -12,15 +12,20 @@ import {
   NavigationItems,
   socialMediaItems,
 } from "@/Component/constant/NavigationItems";
-import VerticalDivider from "../Customized/VerticalDevider";
+import { VerticalDivider } from "../Customized/Devider";
 import { theme } from "@/Styles/theme";
 import MediaIcon from "../Customized/MediaIcon";
 import ButtonOutlined from "../Customized/CustomButton/Outlined";
 import EnterPincodeModal from "./EnterPincodeModal";
 import OrderOnlineDrawer from "./OrderOnlineDrawer";
-export default function TopNavigationBar() {
+export default function TopNavigationBar({
+  scrollProgress,
+}: {
+  scrollProgress: number;
+}) {
   const [modal, setModal] = useState({ open: false, type: "" });
-  const [drawer,setDrawer]=useState({open:false,type:""});
+  const [drawer, setDrawer] = useState({ open: false, type: "" });
+
   const handleModalOpen = (type: string) => {
     setModal({ open: true, type });
   };
@@ -38,16 +43,23 @@ export default function TopNavigationBar() {
     }
   };
 
-  const handleDrawerOpen=(type:string)=>{setDrawer({open:true,type})}
-  const handleDrawerClose=()=>{setDrawer({open:false,type:''})}
-  const drawerRender=()=>{
-    switch(drawer.type){
-      case 'order_online':
-        return <OrderOnlineDrawer open={drawer.open} onClose={handleDrawerClose}/>
+  const handleDrawerOpen = (type: string) => {
+    setDrawer({ open: true, type });
+  };
+  const handleDrawerClose = () => {
+    setDrawer({ open: false, type: "" });
+  };
+  const drawerRender = () => {
+    switch (drawer.type) {
+      case "order_online":
+        return (
+          <OrderOnlineDrawer open={drawer.open} onClose={handleDrawerClose} />
+        );
       default:
         return null;
     }
-  }
+  };
+
   return (
     <Flex vertical className={styles.container}>
       <Flex
@@ -68,7 +80,7 @@ export default function TopNavigationBar() {
               align="center"
               gap={4}
               className={`${TextStyle.content_txt} ${styles.nav_container__pincode}`}
-              onClick={()=>handleModalOpen('pincode_modal')}
+              onClick={() => handleModalOpen("pincode_modal")}
             >
               <span style={{ fontSize: "14px" }}>
                 <EnvironmentOutlined />
@@ -85,7 +97,7 @@ export default function TopNavigationBar() {
               rounded
               label="ORDER ONLINE"
               icon={<DownOutlined />}
-              onClick={()=>handleDrawerOpen('order_online')}
+              onClick={() => handleDrawerOpen("order_online")}
             />
             <span className={styles.search_icon}>
               <SearchOutlined />
@@ -113,7 +125,7 @@ export default function TopNavigationBar() {
           },
         }}
       >
-        <Progress showInfo={false} percent={10} strokeWidth={5} />
+        <Progress showInfo={false} percent={scrollProgress} strokeWidth={5} />
       </ConfigProvider>
       {modal.open && modalRender()}
       {drawer.open && drawerRender()}
