@@ -87,7 +87,7 @@ function GetUpdateSection() {
 }
 export default function FooterContainer() {
   return (
-    <Flex vertical style={{ width: "100%" }}>
+    <Flex vertical style={{ width: "100%",bottom:'0px'}}>
       <Flex
         gap={80}
         align="flex-start"

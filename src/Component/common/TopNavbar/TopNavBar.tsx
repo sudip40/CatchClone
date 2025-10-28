@@ -18,14 +18,19 @@ import MediaIcon from "../Customized/MediaIcon";
 import ButtonOutlined from "../Customized/CustomButton/Outlined";
 import EnterPincodeModal from "./EnterPincodeModal";
 import OrderOnlineDrawer from "./OrderOnlineDrawer";
+import { useRouter } from "next/navigation";
 export default function TopNavigationBar({
   scrollProgress,
 }: {
   scrollProgress: number;
 }) {
+  const router = useRouter();
   const [modal, setModal] = useState({ open: false, type: "" });
   const [drawer, setDrawer] = useState({ open: false, type: "" });
 
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
   const handleModalOpen = (type: string) => {
     setModal({ open: true, type });
   };
@@ -106,7 +111,11 @@ export default function TopNavigationBar({
           <Flex align="center" justify="flex-end" gap={20}>
             {NavigationItems.map((item: any, ind: number) => {
               return (
-                <p key={ind} className={TextStyle.nav_bold_txt}>
+                <p
+                  key={ind}
+                  className={TextStyle.nav_bold_txt}
+                  onClick={() => handleNavigation(item.path)}
+                >
                   {item.content}
                 </p>
               );
