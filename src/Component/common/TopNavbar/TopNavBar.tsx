@@ -6,6 +6,7 @@ import { ConfigProvider, Flex, Progress } from "antd";
 import {
   DownOutlined,
   EnvironmentOutlined,
+  MenuOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 import {
@@ -16,15 +17,17 @@ import { VerticalDivider } from "../Customized/Devider";
 import { theme } from "@/Styles/theme";
 import MediaIcon from "../Customized/MediaIcon";
 import ButtonOutlined from "../Customized/CustomButton/Outlined";
-import EnterPincodeModal from "./EnterPincodeModal";
-import OrderOnlineDrawer from "./OrderOnlineDrawer";
+import EnterPincodeModal from "./Modals/EnterPincodeModal";
+import OrderOnlineDrawer from "./Drawers/OrderOnlineDrawer";
 import { useRouter } from "next/navigation";
+import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
 export default function TopNavigationBar({
   scrollProgress,
 }: {
   scrollProgress: number;
 }) {
   const router = useRouter();
+  const screenWidth = useScreenWidth();
   const [modal, setModal] = useState({ open: false, type: "" });
   const [drawer, setDrawer] = useState({ open: false, type: "" });
 
@@ -43,6 +46,8 @@ export default function TopNavigationBar({
         return (
           <EnterPincodeModal open={modal.open} onClose={handleModalClose} />
         );
+      case "navigation_action":
+        return <></>;
       default:
         return null;
     }
@@ -79,49 +84,57 @@ export default function TopNavigationBar({
           width={100}
           height={70}
         />
-        <Flex vertical gap={10} style={{ width: "70%" }}>
-          <Flex align="center" justify="flex-end" gap={10}>
-            <Flex
-              align="center"
-              gap={4}
-              className={`${TextStyle.content_txt} ${styles.nav_container__pincode}`}
-              onClick={() => handleModalOpen("pincode_modal")}
-            >
-              <span style={{ fontSize: "14px" }}>
-                <EnvironmentOutlined />
+        {screenWidth <= 988 ? (
+          <ButtonOutlined
+            label=""
+            onClick={() => handleDrawerOpen("navigation_action")}
+            icon={<MenuOutlined style={{ fontSize: "24px" }} />}
+          />
+        ) : (
+          <Flex vertical gap={10} style={{ width: "70%" }}>
+            <Flex align="center" justify="flex-end" gap={10}>
+              <Flex
+                align="center"
+                gap={4}
+                className={`${TextStyle.content_txt} ${styles.nav_container__pincode}`}
+                onClick={() => handleModalOpen("pincode_modal")}
+              >
+                <span style={{ fontSize: "14px" }}>
+                  <EnvironmentOutlined />
+                </span>
+                <p>Hello, Enter Your Pincode</p>
+              </Flex>
+              <VerticalDivider />
+              <Flex align="center" gap={8}>
+                {socialMediaItems.map((item: any) => {
+                  return <MediaIcon key={item.key} item={item} />;
+                })}
+              </Flex>
+              <ButtonOutlined
+                rounded
+                label="ORDER ONLINE"
+                icon={<DownOutlined />}
+                onClick={() => handleDrawerOpen("order_online")}
+              />
+              <span className={styles.search_icon}>
+                <SearchOutlined />
               </span>
-              <p>Hello, Enter Your Pincode</p>
             </Flex>
-            <VerticalDivider />
-            <Flex align="center" gap={8}>
-              {socialMediaItems.map((item: any) => {
-                return <MediaIcon key={item.key} item={item} />;
+            <Flex align="center" justify="flex-end" gap={20}>
+              {NavigationItems.map((item: any, ind: number) => {
+                return (
+                  <p
+                    key={ind}
+                    className={TextStyle.nav_bold_txt}
+                    onClick={() => handleNavigation(item.path)}
+                  >
+                    {item.content}
+                  </p>
+                );
               })}
             </Flex>
-            <ButtonOutlined
-              rounded
-              label="ORDER ONLINE"
-              icon={<DownOutlined />}
-              onClick={() => handleDrawerOpen("order_online")}
-            />
-            <span className={styles.search_icon}>
-              <SearchOutlined />
-            </span>
           </Flex>
-          <Flex align="center" justify="flex-end" gap={20}>
-            {NavigationItems.map((item: any, ind: number) => {
-              return (
-                <p
-                  key={ind}
-                  className={TextStyle.nav_bold_txt}
-                  onClick={() => handleNavigation(item.path)}
-                >
-                  {item.content}
-                </p>
-              );
-            })}
-          </Flex>
-        </Flex>
+        )}
       </Flex>
       <ConfigProvider
         theme={{

@@ -1,10 +1,10 @@
 import { Drawer, Flex } from "antd";
 import React from "react";
-import DrawerStyles from "./TopNavBar.module.scss";
+import DrawerStyles from "../TopNavBar.module.scss";
 import TextStyles from "@/Component/common/Typography.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
 import { onlineOderOptions } from "@/Component/constant/NavigationItems";
-import DrawerWithoutHeader from "../Customized/Drawer/DrawerWithoutHeader";
+import DrawerWithoutHeader from "@/Component/common/Customized/Drawer/DrawerWithoutHeader";
 
 export default function OrderOnlineDrawer({
   open,

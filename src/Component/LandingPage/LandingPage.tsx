@@ -1,10 +1,13 @@
+'use client';
 import { Flex } from "antd";
 import styles from "./LandingPage.module.scss";
 import TextStyles from "@/Component/common/Typography.module.scss";
 import { defaultItemsInfo, KeyFeaturesItems } from "../constant/LandingPageItems";
 import { KeyFeature, SpicesInfo } from "./LandingElements";
+import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
 
 export default function LandingPage() {
+  const screenWidth = useScreenWidth();
   return (
     <Flex vertical style={{ width: "100%" }}>
       <img
@@ -20,6 +23,7 @@ export default function LandingPage() {
         </h1>
         <Flex
           align="center"
+          justify="center"
           gap={20}
           className={styles.key_points__items_container}
           wrap
@@ -30,7 +34,7 @@ export default function LandingPage() {
         </Flex>
       </Flex>
       <Flex justify="center" className={styles.item_details_container}>
-        <SpicesInfo spice={defaultItemsInfo[0]}/>
+        <SpicesInfo screenWidth={screenWidth} spice={defaultItemsInfo[0]}/>
       </Flex>
     </Flex>
   );

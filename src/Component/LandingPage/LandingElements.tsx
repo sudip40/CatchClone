@@ -4,6 +4,7 @@ import styles from "./LandingPage.module.scss";
 import ButtonOutlined from "../common/Customized/CustomButton/Outlined";
 import { RightOutlined } from "@ant-design/icons";
 import { onlineOderOptions } from "../constant/NavigationItems";
+import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
 interface keyFeatureProp {
   id: string | number;
   point: string;
@@ -60,13 +61,13 @@ function OrderOnlineTooltip() {
   );
 }
 
-export function SpicesInfo({ spice }: { spice: SpiceInfoProp }) {
+export function SpicesInfo({ spice,screenWidth }: { spice: SpiceInfoProp,screenWidth:number }) {
   return (
-    <Flex align="center" gap={24} className={styles.item_details}>
-      <Flex vertical gap={27} align="flex-start">
+    <Flex align="center" gap={24} className={styles.item_details} wrap>
+      <Flex vertical gap={27} align="flex-start" >
         <p className={styles.details_heading}>{spice.spice}</p>
         <p className={TextStyles.content_txt}>{spice.details}</p>
-        <Flex align="center" gap={10}>
+        <Flex align="center" gap={10} wrap>
           <Tooltip
             title={<OrderOnlineTooltip />}
             trigger={["hover"]}
@@ -90,7 +91,7 @@ export function SpicesInfo({ spice }: { spice: SpiceInfoProp }) {
           />
         </Flex>
       </Flex>
-      <img src={spice.image} alt={"default_spice"} width={450} height={350} />
+      <img src={spice.image} alt={"default_spice"} width={screenWidth<580?screenWidth-100 : 450} height={screenWidth<580?screenWidth-100 : 300} />
     </Flex>
   );
 }

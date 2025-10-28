@@ -1,9 +1,9 @@
 import React from "react";
 import TextStyles from "@/Component/common/Typography.module.scss";
-import Styles from "./TopNavBar.module.scss";
-import CustomModal from "../Customized/CustomModal/CustomModal";
+import Styles from "../TopNavBar.module.scss";
+import CustomModal from "../../Customized/CustomModal/CustomModal";
 import { Flex } from "antd";
-import {TextFieldWithButton} from "../Customized/TextField/TextFiledWithButton";
+import {TextFieldWithButton} from "../../Customized/TextField/TextFiledWithButton";
 export default function EnterPincodeModal({
   open,
   onClose,

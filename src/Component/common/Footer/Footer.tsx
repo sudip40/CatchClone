@@ -93,6 +93,7 @@ export default function FooterContainer() {
         align="flex-start"
         justify="center"
         className={Styles.footer_container}
+        wrap
       >
         {FooterItems.map((content: any, ind: number) => {
           return (

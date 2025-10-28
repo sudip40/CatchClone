@@ -27,7 +27,7 @@ export default function ButtonOutlined({
             defaultColor:colorStrokeBg=='yellow_1'?theme.content.white_text: theme.content.highlight_text,
             defaultBorderColor: colorStrokeBg=='yellow_1'?theme.content.yellow_shade_1_text: theme.content.highlight_text,
             defaultHoverColor: theme.content.white_text,
-            onlyIconSize:10,
+            // onlyIconSize:10,
             defaultHoverBg:
               colorStrokeBg == "gray"
                 ? theme.background.background_gray

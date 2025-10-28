@@ -37,4 +37,15 @@
     color: $theme-text;
 }
 
+@media screen and (max-width:580px) {
+    .key_points{
+        &__items_container{
+            padding: 0px 10px !important;
+        }
+    }
+    .item_details_container{
+        padding: 20px 10px !important;
+    }
+}
+
 
