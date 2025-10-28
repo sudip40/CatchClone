@@ -8,12 +8,12 @@ export const NavigationItems = [
   {
     content: "HOME",
     type: "navigation",
-    path: "/",
+    path: "/everyday",
   },
   {
     content: "ABOUT CATCH",
     type: "navigation",
-    path: "/about-us",
+    path: "/everyday/about-us",
   },
   {
     content: "PRODUCT RANGE",
@@ -28,7 +28,7 @@ export const NavigationItems = [
   {
     content: "CONTACT US",
     type: "navigation",
-    path: "/contact-us",
+    path: "/everyday/contact-us",
   },
 ];
 export const socialMediaItems = [

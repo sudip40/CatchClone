@@ -1,4 +1,4 @@
-import LandingPage from "@/Component/LandingPage/LandingPage";
-export default function Page() {
-  return <LandingPage />;
+import React from "react";
+export default function Page(){
+  return <>Every-day</>
 }
