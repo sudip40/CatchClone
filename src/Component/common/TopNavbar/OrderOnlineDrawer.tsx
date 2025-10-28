@@ -4,6 +4,7 @@ import DrawerStyles from "./TopNavBar.module.scss";
 import TextStyles from "@/Component/common/Typography.module.scss";
 import { CloseOutlined } from "@ant-design/icons";
 import { onlineOderOptions } from "@/Component/constant/NavigationItems";
+import DrawerWithoutHeader from "../Customized/Drawer/DrawerWithoutHeader";
 
 export default function OrderOnlineDrawer({
   open,
@@ -13,18 +14,11 @@ export default function OrderOnlineDrawer({
   onClose: () => void;
 }) {
   return (
-    <Drawer
+    <DrawerWithoutHeader
       placement="top"
       open={open}
       onClose={onClose}
       className={DrawerStyles.top_drawer_style}
-      zIndex={1000}
-      height="auto"
-      closeIcon={null}
-      mask // keeps background visible, optional
-      styles={{
-        header: { display: "none" },
-      }}
     >
       <Flex vertical gap={20}>
         <Flex justify="flex-end" style={{ width: "100%", fontSize: "20px" }}>
@@ -49,6 +43,6 @@ export default function OrderOnlineDrawer({
           </Flex>
         </Flex>
       </Flex>
-    </Drawer>
+    </DrawerWithoutHeader>
   );
 }
