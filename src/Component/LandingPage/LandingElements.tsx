@@ -1,8 +1,9 @@
-import { Flex } from "antd";
+import { Flex, Tooltip } from "antd";
 import TextStyles from "@/Component/common/Typography.module.scss";
 import styles from "./LandingPage.module.scss";
 import ButtonOutlined from "../common/Customized/CustomButton/Outlined";
 import { RightOutlined } from "@ant-design/icons";
+import { onlineOderOptions } from "../constant/NavigationItems";
 interface keyFeatureProp {
   id: string | number;
   point: string;
@@ -40,6 +41,25 @@ export function KeyFeature({ item }: { item: keyFeatureProp }) {
   );
 }
 
+function OrderOnlineTooltip() {
+  return (
+    <Flex
+      gap={20}
+      align="center"
+      style={{ boxSizing: "border-box", padding: "10px 20px" }}
+    >
+      {onlineOderOptions.map((item: any) => (
+        <div
+          key={item.id}
+          style={{ border: "1px solid black", cursor: "pointer" }}
+        >
+          <img src={item.image} alt={item.id} width={70} height={60} />
+        </div>
+      ))}
+    </Flex>
+  );
+}
+
 export function SpicesInfo({ spice }: { spice: SpiceInfoProp }) {
   return (
     <Flex align="center" gap={24} className={styles.item_details}>
@@ -47,12 +67,21 @@ export function SpicesInfo({ spice }: { spice: SpiceInfoProp }) {
         <p className={styles.details_heading}>{spice.spice}</p>
         <p className={TextStyles.content_txt}>{spice.details}</p>
         <Flex align="center" gap={10}>
-          <ButtonOutlined
-            label="ORDER ONLINE"
-            colorStrokeBg="yellow_1"
-            size="large"
-            icon={<RightOutlined />}
-          />
+          <Tooltip
+            title={<OrderOnlineTooltip />}
+            trigger={["hover"]}
+            placement="bottom"
+            color="#ffff"
+          >
+            <span>
+              <ButtonOutlined
+                label="ORDER ONLINE"
+                colorStrokeBg="yellow_1"
+                size="large"
+                icon={<RightOutlined />}
+              />
+            </span>
+          </Tooltip>
           <ButtonOutlined
             label="VIEW DETAILS"
             colorStrokeBg="gray"
