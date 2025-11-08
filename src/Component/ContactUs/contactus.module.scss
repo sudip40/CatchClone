@@ -1,0 +1,25 @@
+@import '/src/Styles/theme.scss';
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 20px !important;
+}
+.bold_header {
+  font-size: 20px;
+  line-height: 1.6rem;
+  word-wrap: break-word;
+  font-weight: 600;
+  color:$theme-text;
+}
+.content_header{
+  font-size:16px;
+  line-height:1.4rem;
+  word-wrap: break-word;
+  color:$highlight-text;
+}
+.content{
+  font-size:15px;
+  line-height:1.4rem;
+  word-wrap: break-word;
+  color:$disable-text;
+}

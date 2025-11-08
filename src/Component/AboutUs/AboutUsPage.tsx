@@ -9,7 +9,7 @@ export default function AboutUsPage() {
   return (
     <Flex vertical style={{ width: "100%" }}>
       <img
-        src="https://catchfoods.com/wp-content/uploads/2023/07/Catch-DS-Spiceco.webp"
+        src="/images/about_landing.webp"
         alt="default"
         width={"100%"}
         height={600}

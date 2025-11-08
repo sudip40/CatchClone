@@ -20,11 +20,11 @@ export const NavigationItems = [
     type: "drawer",
     path: "",
   },
-  {
-    content: "CATCH KITCHEN",
-    type: "navigation",
-    path: "",
-  },
+  // {
+  //   content: "CATCH KITCHEN",
+  //   type: "navigation",
+  //   path: "",
+  // },
   {
     content: "CONTACT US",
     type: "navigation",
