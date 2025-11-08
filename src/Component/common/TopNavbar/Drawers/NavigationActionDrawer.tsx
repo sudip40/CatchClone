@@ -39,8 +39,8 @@ export default function NavigationActionDrawer({
     >
       <Flex vertical gap={20}>
         <img
-          src="https://static.vecteezy.com/system/resources/previews/023/654/784/non_2x/golden-logo-template-free-png.png"
-          alt="default logo"
+          src="/images/Logo_1.png"
+          alt="Red-logo of everyday website"
           width={100}
           height={70}
         />
