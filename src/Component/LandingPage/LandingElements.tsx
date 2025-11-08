@@ -63,7 +63,7 @@ function OrderOnlineTooltip() {
 
 export function SpicesInfo({ spice,screenWidth }: { spice: SpiceInfoProp,screenWidth:number }) {
   return (
-    <Flex align="center" gap={24} className={styles.item_details} wrap>
+    <Flex align="center" gap={24} className={styles.item_details} >
       <Flex vertical gap={27} align="flex-start" >
         <p className={styles.details_heading}>{spice.spice}</p>
         <p className={TextStyles.content_txt}>{spice.details}</p>

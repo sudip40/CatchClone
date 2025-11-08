@@ -9,6 +9,7 @@ import { HorizontalDivider, VerticalDivider } from "../Customized/Devider";
 import { TextFieldWithButton } from "../Customized/TextField/TextFiledWithButton";
 import { socialMediaItems } from "@/Component/constant/NavigationItems";
 import MediaIcon from "../Customized/MediaIcon";
+import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
 
 function TasbarComponent() {
   return (
@@ -17,6 +18,7 @@ function TasbarComponent() {
       align="center"
       gap={10}
       className={Styles.task_bar}
+      wrap
     >
       {TasbarItems.map((content: any, ind: number) => (
         <Flex key={content.id} align="center" gap={10}>
@@ -66,9 +68,9 @@ function FooterSection({ content }: { content: any }) {
     </Flex>
   );
 }
-function GetUpdateSection() {
+function GetUpdateSection({screenWidth}: {screenWidth:number}) {
   return (
-    <Flex vertical gap={10} style={{width:'300px'}}>
+    <Flex vertical gap={10} style={{width:screenWidth<450?'90%':'300px'}}>
       <p style={{ fontSize: "18px" }}>Get exclusive updates.</p>
       <TextFieldWithButton
         placeHolder="email id"
@@ -86,6 +88,7 @@ function GetUpdateSection() {
   );
 }
 export default function FooterContainer() {
+  const screenWidth = useScreenWidth();
   return (
     <Flex vertical style={{ width: "100%",bottom:'0px'}}>
       <Flex
@@ -99,7 +102,7 @@ export default function FooterContainer() {
           return (
             <Flex key={content.content_id} vertical gap={20}>
               <FooterSection content={content} />
-              {ind === FooterItems.length - 1 && <GetUpdateSection />}
+              {ind === FooterItems.length - 1 && <GetUpdateSection screenWidth={screenWidth}/>}
             </Flex>
           );
         })}
