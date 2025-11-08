@@ -7,9 +7,11 @@ import {TextFieldWithButton} from "../../Customized/TextField/TextFiledWithButto
 export default function EnterPincodeModal({
   open,
   onClose,
+  screenWidth
 }: {
   open: boolean;
   onClose: any;
+  screenWidth: number;
 }) {
  
   return (
@@ -18,7 +20,7 @@ export default function EnterPincodeModal({
       open={open}
       onCancel={onClose}
       footer={null}
-      width={"350px"}
+      width={screenWidth < 400 ? "90%" : "350px"}
       zIndex={1012}
     >
       <Flex vertical align="center" gap={15}>

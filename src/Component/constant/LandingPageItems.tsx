@@ -27,7 +27,7 @@ export const defaultItemsInfo=[
        key:'1',
        spice:'Whole Spices',
        details:'Catch’s Mixed Spices are made with high quality whole spices, ground and blended together to perfection, to yield an exciting and aromatic mix which brings the right flavor, color and taste to a variety of dishes. This Indian culinary practice of preparing a blend of spices dates back to ancient times; keeping the tradition alive – Blends by Catch Foods offers a range of mixed spices for the varied and rich Indian delicacies.',
-       image:'https://catchfoods.com/wp-content/uploads/2023/07/Catch-Whole-Spices.webp',
+       image:'/images/Logo_1.png',
        orderLinks:[]
     }
 ]

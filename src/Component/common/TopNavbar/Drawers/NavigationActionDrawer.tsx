@@ -23,6 +23,7 @@ export default function NavigationActionDrawer({
   handleNavigation: any;
   handleModalOpen: any;
 }) {
+
   const Footer: ReactNode = (
     <Flex justify="flex-end">
       <ButtonOutlined label="Close" onClick={onClose} />
@@ -50,9 +51,11 @@ export default function NavigationActionDrawer({
               <Flex key={ind} vertical gap={10}>
                 <p
                   className={TextStyle.nav_bold_txt}
-                  onClick={() => {
+                  onClick={item?.type==='navigation'? () => {
                     handleNavigation(item.path);
                     onClose();
+                }:() => {
+                  handleModalOpen('product_range');
                 }}
                 >
                   {item.content}

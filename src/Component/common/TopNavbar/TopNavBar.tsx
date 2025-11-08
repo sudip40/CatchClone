@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
 import NavigationActionDrawer from "./Drawers/NavigationActionDrawer";
 import ProductRangeTooltip from "./ProductRangeTooltip";
+import ProductRangeModal from "./Modals/ProductRangeModal";
 export default function TopNavigationBar({
   scrollProgress,
 }: {
@@ -46,8 +47,12 @@ export default function TopNavigationBar({
     switch (modal.type) {
       case "pincode_modal":
         return (
-          <EnterPincodeModal open={modal.open} onClose={handleModalClose} />
+          <EnterPincodeModal open={modal.open} onClose={handleModalClose} screenWidth={screenWidth} />
         );
+      case "product_range":
+        return (
+          <ProductRangeModal open={modal.open} onClose={handleModalClose} />
+        )
       default:
         return null;
     }
@@ -133,16 +138,9 @@ export default function TopNavigationBar({
             <Flex align="center" justify="flex-end" gap={20}>
               {NavigationItems.map((item: any, ind: number) => {
                 return item?.type === "drawer" ? (
-                  <Tooltip
-                    title={<ProductRangeTooltip />}
-                    placement="bottom"
-                    trigger={["hover"]}
-                    color="#ffff"
-                  >
-                    <p key={ind} className={TextStyle.nav_bold_txt}>
-                      {item.content}
-                    </p>
-                  </Tooltip>
+                      <p key={ind} className={TextStyle.nav_bold_txt} onMouseEnter={()=>handleModalOpen('product_range')}>
+                        {item.content}
+                      </p>
                 ) : (
                   <p
                     key={ind}

@@ -67,23 +67,51 @@ export const ProductRageList = [
   {
     id: "kitchen_range",
     range_name: "KITCHEN RANGE",
+    path:'#',
     range_items:[
       {
         id:'1',
         label:'Single/straight species',
-        link:'',
-        image:'',
+        link:'#',
+        image:'/images/Logo_1.png',
+      },
+      {
+        id:'2',
+        label:'Single/straight species',
+        link:'#',
+        image:'/images/Logo_1.png',
+      },
+      {
+        id:'3',
+        label:'Single/straight species',
+        link:'#',
+        image:'/images/Logo_1.png',
       }
     ]
   },
   {
-    id: "table_top_range",
-    range_name: "TABLE TOP RANGE",
-    range_items:[]
-  },
-  {
-    id: "others",
-    range_name: "OTHERS",
-    range_items:[]
-  },
+    id: "everyday_origin",
+    range_name: "EVERYDAY ORIGIN",
+    path:'#',
+    range_items:[
+      {
+        id:'1',
+        label:'Single/straight species',
+        link:'#',
+        image:'/images/Logo_1.png',
+      },
+      {
+        id:'2',
+        label:'Single/straight species',
+        link:'#',
+        image:'/images/Logo_1.png',
+      },
+      {
+        id:'3',
+        label:'Single/straight species',
+        link:'#',
+        image:'/images/Logo_1.png',
+      }
+    ]
+  }
 ];
