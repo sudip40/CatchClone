@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./TopNavBar.module.scss";
 import TextStyle from "@/Component/common/Typography.module.scss";
-import { ConfigProvider, Flex, Progress } from "antd";
+import { ConfigProvider, Flex, Progress, Tooltip } from "antd";
 import {
   DownOutlined,
   EnvironmentOutlined,
@@ -21,6 +21,8 @@ import EnterPincodeModal from "./Modals/EnterPincodeModal";
 import OrderOnlineDrawer from "./Drawers/OrderOnlineDrawer";
 import { useRouter } from "next/navigation";
 import { useScreenWidth } from "@/helpers/hooks/useGetScreenWidth";
+import NavigationActionDrawer from "./Drawers/NavigationActionDrawer";
+import ProductRangeTooltip from "./ProductRangeTooltip";
 export default function TopNavigationBar({
   scrollProgress,
 }: {
@@ -46,8 +48,6 @@ export default function TopNavigationBar({
         return (
           <EnterPincodeModal open={modal.open} onClose={handleModalClose} />
         );
-      case "navigation_action":
-        return <></>;
       default:
         return null;
     }
@@ -64,6 +64,16 @@ export default function TopNavigationBar({
       case "order_online":
         return (
           <OrderOnlineDrawer open={drawer.open} onClose={handleDrawerClose} />
+        );
+      case "navigation_action":
+        return (
+          <NavigationActionDrawer
+            open={drawer.open}
+            onClose={handleDrawerClose}
+            handleNavigation={handleNavigation}
+            screenWidth={screenWidth}
+            handleModalOpen={handleModalOpen}
+          />
         );
       default:
         return null;
@@ -122,7 +132,18 @@ export default function TopNavigationBar({
             </Flex>
             <Flex align="center" justify="flex-end" gap={20}>
               {NavigationItems.map((item: any, ind: number) => {
-                return (
+                return item?.type === "drawer" ? (
+                  <Tooltip
+                    title={<ProductRangeTooltip />}
+                    placement="bottom"
+                    trigger={["hover"]}
+                    color="#ffff"
+                  >
+                    <p key={ind} className={TextStyle.nav_bold_txt}>
+                      {item.content}
+                    </p>
+                  </Tooltip>
+                ) : (
                   <p
                     key={ind}
                     className={TextStyle.nav_bold_txt}

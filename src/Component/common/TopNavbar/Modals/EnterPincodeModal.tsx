@@ -19,6 +19,7 @@ export default function EnterPincodeModal({
       onCancel={onClose}
       footer={null}
       width={"350px"}
+      zIndex={1012}
     >
       <Flex vertical align="center" gap={15}>
         <p
