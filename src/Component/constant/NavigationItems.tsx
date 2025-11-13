@@ -11,7 +11,7 @@ export const NavigationItems = [
     path: "/everyday",
   },
   {
-    content: "ABOUT CATCH",
+    content: "ABOUT EVERYDAY",
     type: "navigation",
     path: "/everyday/about-us",
   },

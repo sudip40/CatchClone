@@ -18,7 +18,7 @@ export default function LandingPage() {
       />
       <Flex vertical align="center" className={styles.key_points} gap={40}>
         <h1 className={styles.key_points__heading}>
-          Discover the world of Exotic and Authentic Spices from Catch- Kyunki
+          Discover the world of Exotic and Authentic Spices from Everyday- Kyunki
           Khana Sirf Khana Nahi Hota
         </h1>
         <Flex
